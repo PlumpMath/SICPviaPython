@@ -3,17 +3,15 @@ def scm_print(items):
     def display_item(x):
         if x == None:
             return "()"
-        elif not callable(x):
+        if not callable(x):
             return str(x)
-        else:
-            return "({0})".format(display_pair(x))
+        return "({0})".format(display_pair(x))
     def display_pair(x):
         if cdr(x) == None:
             return display_item(car(x))
-        elif not callable(cdr(x)):
+        if not callable(cdr(x)):
             return display_item(car(x)) + ", " + display_item(cdr(x))
-        else:
-            return display_item(car(x)) + ", " + display_pair(cdr(x))
+        return display_item(car(x)) + ", " + display_pair(cdr(x))
     print(display_item(items))
 
 # 2.1
@@ -27,14 +25,13 @@ def cons(x, y):
     def dispatch(m):
         if m == "car":
             return x
-        elif m == "cdr":
+        if m == "cdr":
             return y
-        elif m == "set_car":
+        if m == "set_car":
             return set_x
-        elif m == "set_cdr":
+        if m == "set_cdr":
             return set_y
-        else:
-            raise Exception("Undefined operation -- CONS")
+        raise Exception("Undefined operation -- CONS")
     return dispatch
 
 def car(z):
