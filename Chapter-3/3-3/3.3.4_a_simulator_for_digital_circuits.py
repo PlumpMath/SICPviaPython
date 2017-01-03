@@ -47,6 +47,20 @@ def or_gate(a1, a2, output):
 # n-bit ripple-carry adder, expressed in terms of the delays for and-gates,
 # or-gates, and inverters?
 
+def ripple_carry_adder(a, b, s, c)
+    c_in = make_wire()
+    if cdr(a) == None:
+        set_signal(c_in, 0)
+        return ripple_carry_adder(cdr(a), cdr(b), cdr(s), c_in)
+    return full_adder(car(a), car(b), c_in, car(s), c)
+
+
+
+
+
+
+
+
 
 a = make_wire()
 b = make_wire()
